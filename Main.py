@@ -8,8 +8,8 @@ for u in users:
     print(users[u].__str__())
 print()
 percentages = percentageUsers(users)
-for p in percentages:
-    print(p)
+for u in percentages.keys():
+    print(u, percentages[u])
 print()
 similarUsers = recomendation.SimilarityByTopic("Pablo", users, percentages)
 for u in similarUsers:
