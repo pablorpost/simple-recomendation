@@ -1,5 +1,6 @@
-from User import Inversion
-from Inversion import Inversion
-from Recomendation import Recomendation
+from User import *
+from Inversion import *
+from Recomendation import *
 
-users = loadUsers()
+checkForCsv()
+users = loadUsersFromCSV()
