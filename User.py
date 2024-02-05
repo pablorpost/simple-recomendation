@@ -1,4 +1,3 @@
-import pandas as pd
 from Inversion import Inversion
 class User:
     def __init__(self, name, inversions):
@@ -43,17 +42,21 @@ def initUsers():
 
         ]
     }
-    users = pd.DataFrame(columns=['Name']+topics)
-    for name in names:
-        user = User(name, dict[name])
-        users.loc[len(users)] = pd.Series()
-        users.at[len(users)-1, 'Name'] = name
-        for inversion in user.inversions:
-            users.at[users[users['Name'] == name].index[0], inversion.type] = inversion.quantity
-        users['Total'] = users[topics].sum(axis=1)
-    for i in users:
-        if i != 'Name':
-            users[i] = users[i] / users['Total']
-    users.replace(to_replace = pd.NA, value = 0, inplace = True)
-    users = users.drop(columns=['Total'])
-    return users
+
+    return dict
+
+def percentageUsers(dict):
+    names = ['Pablo','Ander','Diego','Fer','Marky','Quasi']
+    topics = ["Technology","Science","Art"]
+    sol = {}
+    for n in names:
+        sol[n] = {}
+        total = 0
+        for t in topics:
+            sol[n][t] = 0
+        for i in dict[n]:
+            sol[n][i.type] += i.quantity
+            total += i.quantity
+        for t in topics:
+            sol[n][t] = sol[n][t] / total * 100 if total != 0 else 0
+    return sol
