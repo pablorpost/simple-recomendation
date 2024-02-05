@@ -2,5 +2,6 @@ from User import *
 from Inversion import *
 from Recomendation import *
 
-checkForCsv()
-users = loadUsersFromCSV()
+recomendation = Recomendation(["Technology","Science","Art"])#,"Music","Food","Health","Entertainment","Education","Environment","Other"])
+users = initUsers()
+print(users)
