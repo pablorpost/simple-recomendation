@@ -1,9 +1,14 @@
 from User import *
 from Inversion import *
 from Recomendation import *
+from Project import *
 
 recomendation = Recomendation(["Technology","Science","Art"])#,"Music","Food","Health","Entertainment","Education","Environment","Other"])
-users = initUsers()
+projects = initProjects()
+for p in projects.keys():
+    print(projects[p].__str__())
+print()
+users = initUsers(projects)
 for u in users:
     print(users[u].__str__())
 print()

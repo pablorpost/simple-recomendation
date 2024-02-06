@@ -17,33 +17,33 @@ class User:
         return str
         
 
-def initUsers():
+def initUsers(projects):
     names = ['Pablo','Ander','Diego','Fer','Marky','Quasi']
     topics = ["Technology","Science","Art"]
     dict = {
         'Pablo' : [
-            Inversion( 'Pablo', 'Technology', 'ProjectT0', 100),
-            Inversion( 'Pablo', 'Science', 'ProjectS0', 50),
-            Inversion( 'Pablo', 'Art', 'ProjectA0', 10)
+            Inversion( 'Pablo', projects['T0'], 100),
+            Inversion( 'Pablo', projects['S0'], 50),
+            Inversion( 'Pablo', projects['A0'], 10)
         ],
         'Ander' : [
-            Inversion( 'Ander', 'Technology', 'ProjectT0', 100),
-            Inversion( 'Ander', 'Science', 'ProjectS2', 50),
-            Inversion( 'Ander', 'Art', 'ProjectA0', 1000),
-            Inversion( 'Ander', 'Technology', 'ProjectT1', 100),
+            Inversion( 'Ander', projects['T0'], 100),
+            Inversion( 'Ander', projects['S2'], 50),
+            Inversion( 'Ander', projects['A0'], 1000),
+            Inversion( 'Ander', projects['T1'], 100)
         ],
         'Diego' : [
-            Inversion( 'Diego', 'Technology', 'ProjectT0', 10),
-            Inversion( 'Diego', 'Art', 'ProjectA3', 100)
+            Inversion( 'Diego', projects['T0'], 10),
+            Inversion( 'Diego', projects['A3'], 100)
         ],
         'Fer' : [
-            Inversion( 'Fer', 'Technology', 'ProjectT0', 100),
-            Inversion( 'Fer', 'Science', 'ProjectS1', 50),
+            Inversion( 'Fer', projects['T0'], 100),
+            Inversion( 'Fer', projects['S1'], 50),
         ],
         'Marky' : [
-            Inversion( 'Marky', 'Technology', 'ProjectT1', 100),
-            Inversion( 'Marky', 'Science', 'ProjectS0', 50),
-            Inversion( 'Marky', 'Art', 'ProjectA2', 10)
+            Inversion( 'Pablo', projects['T1'], 100),
+            Inversion( 'Pablo', projects['S0'], 50),
+            Inversion( 'Pablo', projects['A2'], 10)
         ],
         'Quasi' : [
 
@@ -64,7 +64,7 @@ def percentageUsers(dict):
         for t in topics:
             sol[n][t] = 0
         for i in dict[n].inversions:
-            sol[n][i.type] += i.quantity
+            sol[n][i.project.topic] += i.quantity
             total += i.quantity
         for t in topics:
             sol[n][t] = sol[n][t] / total * 100 if total != 0 else 0
