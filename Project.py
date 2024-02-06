@@ -4,12 +4,14 @@ class Project:
         self.topic = topic
         self.goal = goal
         self.current = 0
+        self.inversions = []
     
     def __str__(self):
         return f'{self.name}:\n\tTopic: {self.topic}\n\tGoal: {self.goal}\n\tCurrent: {self.current}\n'
     
     def add_inversion(self, inversion):
-        self.current += inversion.amount
+        self.current += inversion.quantity
+        self.inversions.append(inversion)
     
 def initProjects():
     dict = {

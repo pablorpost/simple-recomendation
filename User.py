@@ -41,9 +41,9 @@ def initUsers(projects):
             Inversion( 'Fer', projects['S1'], 50),
         ],
         'Marky' : [
-            Inversion( 'Pablo', projects['T1'], 100),
-            Inversion( 'Pablo', projects['S0'], 50),
-            Inversion( 'Pablo', projects['A2'], 10)
+            Inversion( 'Marky', projects['T1'], 100),
+            Inversion( 'Marky', projects['S0'], 50),
+            Inversion( 'Marky', projects['A2'], 10)
         ],
         'Quasi' : [
 

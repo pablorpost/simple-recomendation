@@ -23,4 +23,6 @@ print()
 projects = recomendation.RecomendProjects("Pablo", users, similarUsers)
 for p in projects:
     print(p)
+    print(recomendation.PosibilityOfDonation("Pablo", similarUsers, p))
+    print()
 print()
