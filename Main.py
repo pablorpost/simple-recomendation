@@ -20,9 +20,12 @@ similarUsers = recomendation.SimilarityByTopic("Pablo", users, percentages)
 for u in similarUsers:
     print(u)
 print()
-projects = recomendation.RecomendProjects("Pablo", users, similarUsers)
-for p in projects:
-    print(p)
-    print(recomendation.PosibilityOfDonation("Pablo", similarUsers, p))
-    print()
+projectsRecomended = recomendation.RecomendProjects("Pablo", users, similarUsers)
+for p in projectsRecomended:
+    print(p.name)
 print()
+
+posibilityOfDonation = []
+for p in projects.values():
+    posibilityOfDonation.append(recomendation.PosibilityOfDonation("Pablo", similarUsers, p))
+print(*[i[1] for i in sorted(posibilityOfDonation,key=(lambda x: -x[0]))], sep="\n")

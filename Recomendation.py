@@ -38,6 +38,7 @@ class Recomendation:
         for u in similarUsers:
             if u[0] in dict:
                 points += dict[u[0]]*(200-u[1])
-        return (f'El usuario {user} tiene un {(points/(total)):.2f}% de posibilidades de donar a {project.name}')
+        sol = points/total if total else 0
+        return sol,(f'El usuario {user} tiene un {f"{sol:.2f}" if sol else "??"}% de posibilidades de donar a {project.name}')
 
 
